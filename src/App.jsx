@@ -148,13 +148,24 @@ const App = () => {
       </header>
 
       {/* Hero Section - Image Only */}
-      <section className="relative h-190 w-full">
-        <img
-          src="/siuherobg.jpg"
-          alt="Saroj University Campus"
-          className="w-full h-full object-cover"
-        />
-      </section>
+    <section className="relative w-full h-screen overflow-hidden">
+  <img
+    src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
+    alt="Hero Background"
+    className="w-full h-full object-cover"
+  />
+
+  <div className="absolute inset-x-0 top-0 flex justify-center pt-40 px-4">
+    <div className="text-white text-center w-full ">
+      <h1 className="text-4xl md:text-7xl font-extrabold mb-4">
+        SAROJ INTERNATIONAL UNIVERSITY
+      </h1>
+      <h2 className="text-2xl md:text-5xl font-medium">
+       India’s Gateway to Next-Gen Education
+      </h2>
+    </div>
+  </div>
+</section>
 
       {/* Application Section */}
        <section className="py-16 bg-gray-50 relative overflow-hidden">
