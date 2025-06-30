@@ -335,7 +335,7 @@ const App = () => {
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"
+        className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
       />
     </motion.div>
     
@@ -403,7 +403,7 @@ const App = () => {
   <div className="container mx-auto px-4">
     <div className="text-center mb-10">
       <h2 className="text-3xl font-bold text-blue-900 mb-2">What Our Students Say</h2>
-      <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+      <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
     </div>
 
     <div className="grid md:grid-cols-2 gap-6">
@@ -454,7 +454,8 @@ const App = () => {
       <section className="py-16 bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Hiring Partners</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Hiring Partners</h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Leading organizations that recruit Saroj University graduates
             </p>
