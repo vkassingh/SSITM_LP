@@ -1,40 +1,97 @@
-import { Phone, Mail, ChevronRight, Check, GraduationCap, Users, Briefcase, FlaskConical, Microscope, Laptop, BookOpen, Scale, Award } from 'lucide-react';
+import {CheckSquare, Hotel, Gavel,Film,Phone, Mail, ChevronRight, Check, GraduationCap, Users, Briefcase, FlaskConical, Microscope, Laptop, BookOpen, Scale,  MapPin } from 'lucide-react';
 import { useEffect, useState } from "react";
 import sarojLogo from "./assets/sarojLogo.png";
 import { FileText, Upload, Search, } from 'lucide-react';  
-import { motion } from "framer-motion";
+import { motion ,AnimatePresence} from "framer-motion";
  
 // Animation variants for RESEARCH SECTION starts
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3, // Delay before individual items start animating
+        staggerChildren: 0.2, // Stagger the animation of each child item
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+  };
+
+  const hoverEffect = {
+    scale: 1.05, // Scale up the card slightly on hover
+    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)", // Add a subtle shadow
     transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  };
 
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  }
-};
+    // Data for departments including programs offered
+  const departments = [
+    {
+      icon: <Laptop className="w-8 h-8 text-blue-600" />,
+      title: "Engineering & Technology",
+      institute: "Institute of Technology & Management",
+      programs: ["B.Tech (CSE, ECE, ME, CE)", "M.Tech", "Diploma"],
+    },
+    {
+      icon: <Briefcase className="w-8 h-8 text-green-600" />,
+      title: "Management Studies",
+      institute: "Institute of Management Studies",
+      programs: ["MBA", "BBA", "PGDM"],
+    },
+    {
+      icon: <Laptop className="w-8 h-8 text-indigo-600" />, // Using Laptop for Computer Applications as well
+      title: "Computer Applications",
+      institute: "Institute of Computer Applications",
+      programs: ["BCA", "MCA", "DCA"],
+    },
+    {
+      icon: <FlaskConical className="w-8 h-8 text-orange-600" />, // Changed color for variety
+      title: "Sciences",
+      institute: "Institute of Science & Technology",
+      programs: ["B.Sc (PCS, PCM, CBZ)", "M.Sc", "B.Sc (Hons)"],
+    },
+    {
+      icon: <Hotel className="w-8 h-8 text-pink-600" />, // New icon for Hotel Management
+      title: "Hotel Management",
+      institute: "Institute of Hotel Management",
+      programs: ["BHMCT", "DHM", "Food Technology"],
+    },
+    {
+      icon: <Gavel className="w-8 h-8 text-red-600" />, // New icon for Law
+      title: "Law",
+      institute: "Institute of Law",
+      programs: ["BA LLB", "LLB", "LLM"],
+    },
+    {
+      icon: <Film className="w-8 h-8 text-teal-600" />, // New icon for Media Studies
+      title: "Media Studies",
+      institute: "Institute of Media & Communication",
+      programs: ["BJMC", "MJMC", "Digital Media"],
+    },
+    {
+      icon: <GraduationCap className="w-8 h-8 text-yellow-600" />, // New icon for Education
+      title: "Education",
+      institute: "Institute of Education",
+      programs: ["B.Ed", "D.El.Ed", "M.Ed"],
+    },
+  ];
 
-const hoverEffect = {
-  scale: 1.03,
-  y: -5,
-  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-};
-// Animation variants for RESEARCH SECTION ends
-
-// Star particle APPLY SECTION
+// Star particle effect for apply section background
 const StarParticle = () => {
   const [x] = useState(Math.random() * 100);
   const [delay] = useState(Math.random() * 5);
@@ -73,8 +130,6 @@ const StarParticle = () => {
 };
 
 
-// Animation for APPLY SECTION ends
-
 const App = () => {
 
    const [scriptLoaded, setScriptLoaded] = useState(false)
@@ -112,10 +167,64 @@ const App = () => {
 //APPLY SECTION state for start particles
  const [particles, setParticles] = useState([]);
   useEffect(() => {
-    // Create 80 yellow star particles
+    
     setParticles(Array.from({ length: 80 }, (_, i) => i));
   }, []);
 
+    // Animation variants for the looping words
+  const wordVariants = {
+    enter: {
+      opacity: 0,
+      y: 20,
+    },
+    center: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.5,
+        ease: "easeIn",
+      },
+    },
+  };
+
+//drop in effect for hero section text
+ const dropIn = {
+    hidden: {
+      y: -100,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        type: "spring",
+        damping: 15,
+        stiffness: 100,
+      },
+    },
+  };
+
+  const words = ["Educate...", "Empower...", "Excel..."];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+    useEffect(() => {
+    // Set up a timer to cycle through the words every 3 seconds
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2300); // 3 seconds delay
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
 
   return (
@@ -147,25 +256,52 @@ const App = () => {
         </div>
       </header>
 
-      {/* Hero Section - Image Only */}
-    <section className="relative w-full h-screen overflow-hidden">
-  <img
-    src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
-    alt="Hero Background"
-    className="w-full h-full object-cover"
-  />
+      {/* Hero Section - Image and text */}
+   <section className="relative w-full h-screen overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
+        alt="Hero Background"
+        className="w-full h-full object-cover"
+      />
 
-  <div className="absolute inset-x-0 top-0 flex justify-center pt-40 px-4">
-    <div className="text-white text-center w-full ">
-      <h1 className="text-4xl md:text-7xl font-extrabold mb-4">
-        SAROJ INTERNATIONAL UNIVERSITY
-      </h1>
-      <h2 className="text-2xl md:text-5xl font-medium">
-       India’s Gateway to Next-Gen Education
-      </h2>
-    </div>
-  </div>
-</section>
+      <div className="absolute inset-x-0 top-0 flex justify-center pt-40 px-4">
+        <div className="text-white text-center w-full max-w-5xl">
+          <motion.h1
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1, ...dropIn.visible.transition }}
+            className="text-3xl md:text-7xl font-extrabold mb-4"
+          >
+            SAROJ INTERNATIONAL UNIVERSITY
+          </motion.h1>
+
+          <motion.h2
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1.5, ...dropIn.visible.transition }}
+            className="text-2xl md:text-5xl font-medium mb-8"
+          >
+            India’s Gateway to Next-Gen Education
+          </motion.h2>
+
+          {/* New section for the looping words */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentWordIndex}
+              variants={wordVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="text-xl md:text-4xl font-semibold text-yellow-300"
+            >
+              {words[currentWordIndex]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
 
       {/* Application Section */}
        <section className="py-16 bg-gray-50 relative overflow-hidden">
@@ -333,81 +469,65 @@ const App = () => {
     </section>
 
 {/* Specialized Departments */}
-<section className="py-16 bg-blue-50">
-  <div className="container mx-auto px-4">
-    <motion.div 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="text-center mb-12"
-    >
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specialized Departments</h2>
-      <motion.div 
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
-      />
-    </motion.div>
-    
-    <motion.div 
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-    >
-      {[
-        { 
-          icon: <Laptop className="w-8 h-8 text-blue-600" />,
-          title: "Computer Science & Engineering",
-          description: "Cutting-edge programs in AI, ML, and software development"
-        },
-        { 
-          icon: <Briefcase className="w-8 h-8 text-green-600" />,
-          title: "Business Administration",
-          description: "Industry-aligned MBA and BBA programs"
-        },
-        { 
-          icon: <FlaskConical className="w-8 h-8 text-blue-600" />,
-          title: "Pharmaceutical Sciences",
-          description: "Comprehensive pharmacy education and research"
-        },
-        { 
-          icon: <BookOpen className="w-8 h-8 text-purple-600" />,
-          title: "Arts & Humanities",
-          description: "Creative programs in literature and social sciences"
-        },
-        { 
-          icon: <Scale className="w-8 h-8 text-yellow-600" />,
-          title: "Legal Studies",
-          description: "BA LLB and LLM programs with moot court training"
-        },
-        { 
-          icon: <Users className="w-8 h-8 text-indigo-600" />,
-          title: "Health Sciences",
-          description: "Nursing and allied health programs"
-        }
-      ].map((dept, index) => (
-        <motion.div 
-          key={index}
-          variants={item}
-          whileHover={hoverEffect}
-          className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all"
+ <section className="py-16 bg-blue-50">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          <motion.div 
-            whileHover={{ rotate: 10 }}
-            className="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center mb-4"
-          >
-            {dept.icon}
-          </motion.div>
-          <h3 className="text-xl font-semibold mb-2">{dept.title}</h3>
-          <p className="text-gray-600">{dept.description}</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specialized Departments</h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
+          />
         </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" // Adjusted grid columns for more items
+        >
+          {departments.map((dept, index) => (
+            <motion.div
+              key={index}
+              variants={item}
+              whileHover={hoverEffect}
+              className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all shadow-md flex flex-col" // Added flex-col for better layout
+            >
+              <div className="flex items-center mb-4">
+                <motion.div
+                  whileHover={{ rotate: 10 }}
+                  className="w-12 h-12 bg-blue-100 rounded-full shadow-sm flex items-center justify-center mr-4" // Changed bg-white to bg-blue-100 for consistency
+                >
+                  {dept.icon}
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">{dept.title}</h3>
+                  <p className="text-sm text-gray-500">{dept.institute}</p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm font-semibold text-gray-700 mb-2">PROGRAMS OFFERED</p>
+                <ul className="space-y-2">
+                  {dept.programs.map((program, pIndex) => (
+                    <li key={pIndex} className="flex items-center text-gray-600 text-sm">
+                      <CheckSquare className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" /> {/* Checkmark icon */}
+                      {program}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
 
       {/* Testimonials */}
   <section className="py-25 bg-gray-100">
@@ -494,7 +614,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      {/* <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
@@ -509,10 +629,10 @@ const App = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Admissions</a></li>
+              <li><a href="#" className="hover:text-blue-400 transition-colors">Admission Process</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Programs</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Placements</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
+              
             </ul>
           </div>
           
@@ -521,15 +641,16 @@ const App = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
-                <span>+91 522 311 6178</span>
+                <a href="tel:+919513731275">+91-9513731275</a>
+
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
                 <span>info@sarojuniversity.edu.in</span>
               </div>
               <div className="flex items-center">
-                <Users className="w-5 h-5 mr-2" />
-                <span>Lucknow, Uttar Pradesh</span>
+                <MapPin className="w-5 h-5 mr-2" />
+                <span>12th Km Stone, Sultanpur Road, Near Purvanchal Expressway, Gosaiganj, Lucknow, Uttar Pradesh - 226 022</span>
               </div>
             </div>
           </div>
@@ -538,7 +659,7 @@ const App = () => {
         <div className="container mx-auto px-4 pt-8 mt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
           © {new Date().getFullYear()} Saroj University. All Rights Reserved.
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 };
