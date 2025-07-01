@@ -592,7 +592,7 @@ const App = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-5 rounded-lg shadow-md border border-gray-200 ">
             {[
               { name: "TCS", logo: "/logos/tcs.png" },
               { name: "Infosys", logo: "/logos/infosys.png" },
@@ -606,7 +606,7 @@ const App = () => {
                  { name: "", logo: "/logos/tech_mahindra.png" },
                   
             ].map((company, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center">
+              <div key={index} className="bg-white p-4  flex items-center justify-center">
                 <img 
                   src={company.logo} 
                   alt={company.name}
@@ -623,7 +623,11 @@ const App = () => {
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <GraduationCap className="w-8 h-8 text-blue-500 mr-3" />
+            <img 
+              src= "/favicon.png"
+              alt="Saroj University Logo"
+              className="h-12"
+            />
               <h3 className="text-xl font-bold">Saroj University</h3>
             </div>
             <p className="text-gray-400">
@@ -644,7 +648,7 @@ const App = () => {
                 <span>info@sarojuniversity.edu.in</span>
               </div>
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 mr-2" />
+                <MapPin className="w-10 h-10 mr-2" />
                 <span>12th Km Stone, Sultanpur Road, Near Purvanchal Expressway, Gosaiganj, Lucknow, Uttar Pradesh - 226022</span>
               </div>
             </div>
