@@ -205,7 +205,7 @@ const App = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 8.8,
         type: "spring",
         damping: 15,
         stiffness: 100,
@@ -257,21 +257,21 @@ const App = () => {
       </header>
 
       {/* Hero Section - Image and text */}
-   <section className="relative w-full h-screen overflow-hidden">
+   <section className="relative w-full h-[800px] overflow-hidden">
       <img
         src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
         alt="Hero Background"
         className="w-full h-full object-cover"
       />
 
-      <div className="absolute inset-x-0 top-0 flex justify-center pt-40 px-4">
-        <div className="text-white text-center w-full max-w-5xl">
+      <div className="absolute inset-x-0 top-0 flex justify-center pt-30 px-4">
+        <div className="text-white text-center w-full max-w-9xl">
           <motion.h1
             variants={dropIn}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1, ...dropIn.visible.transition }}
-            className="text-3xl md:text-7xl font-extrabold mb-4"
+            className="text-2xl md:text-6xl font-extrabold mb-4"
           >
             SAROJ INTERNATIONAL UNIVERSITY
           </motion.h1>
@@ -281,7 +281,7 @@ const App = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.5, ...dropIn.visible.transition }}
-            className="text-2xl md:text-5xl font-medium mb-8"
+            className="text-xl md:text-4xl font-medium mb-8"
           >
             India’s Gateway to Next-Gen Education
           </motion.h2>
@@ -582,7 +582,7 @@ const App = () => {
 </section>
 
       {/* Hiring Partners */}
-      <section className="py-16 bg-gray-50 min-h-screen">
+      <section className="py-16 bg-gray-50 h-auto">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Hiring Partners</h2>
@@ -592,7 +592,7 @@ const App = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {[
               { name: "TCS", logo: "/logos/tcs.png" },
               { name: "Infosys", logo: "/logos/infosys.png" },
@@ -600,6 +600,11 @@ const App = () => {
               { name: "Amazon", logo: "/logos/amazon.png" },
               { name: "Microsoft", logo: "/logos/microsoft.png" },
               { name: "HCL", logo: "/logos/hcl.png" },
+              { name: "", logo: "/logos/accenture.png" },
+               { name: "", logo: "/logos/capgemini.png" },
+                { name: "", logo: "/logos/deloitte.png" },
+                 { name: "", logo: "/logos/tech_mahindra.png" },
+                  
             ].map((company, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center">
                 <img 
@@ -627,16 +632,6 @@ const App = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Admission Process</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Programs</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Placements</a></li>
-              
-            </ul>
-          </div>
-          
-          <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center">
@@ -650,7 +645,7 @@ const App = () => {
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 mr-2" />
-                <span>12th Km Stone, Sultanpur Road, Near Purvanchal Expressway, Gosaiganj, Lucknow, Uttar Pradesh - 226 022</span>
+                <span>12th Km Stone, Sultanpur Road, Near Purvanchal Expressway, Gosaiganj, Lucknow, Uttar Pradesh - 226022</span>
               </div>
             </div>
           </div>
