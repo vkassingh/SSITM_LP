@@ -1,6 +1,6 @@
-import {CheckSquare, Hotel, Gavel,Film,Phone, Mail, ChevronRight, Check, GraduationCap, Users, Briefcase, FlaskConical, Microscope, Laptop, BookOpen, Scale,  MapPin } from 'lucide-react';
-import { useEffect, useState } from "react";
-import sarojLogo from "./assets/sarojLogo.png";
+import {CheckSquare, Hotel, Gavel,Film,Phone, Mail, GraduationCap, Briefcase, FlaskConical, Laptop, MapPin, Facebook, Instagram} from 'lucide-react';
+import { useEffect, useState, useRef } from "react";
+import ssitmLogo from "./assets/ssitm-logo.png";
 import { FileText, Upload, Search, } from 'lucide-react';  
 import { motion ,AnimatePresence} from "framer-motion";
  
@@ -42,93 +42,56 @@ import { motion ,AnimatePresence} from "framer-motion";
     // Data for departments including programs offered
   const departments = [
     {
-      icon: <Laptop className="w-8 h-8 text-blue-600" />,
+      icon: <Laptop className="w-8 h-8 text-gray-450" />,
       title: "Engineering & Technology",
       institute: "Institute of Technology & Management",
       programs: ["B.Tech (CSE, ECE, ME, CE)", "M.Tech", "Diploma"],
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-green-600" />,
+      icon: <Briefcase className="w-8 h-8 text-gray-450" />,
       title: "Management Studies",
       institute: "Institute of Management Studies",
       programs: ["MBA", "BBA", "PGDM"],
     },
     {
-      icon: <Laptop className="w-8 h-8 text-indigo-600" />, // Using Laptop for Computer Applications as well
+      icon: <Laptop className="w-8 h-8 text-gray-450" />, // Using Laptop for Computer Applications as well
       title: "Computer Applications",
       institute: "Institute of Computer Applications",
       programs: ["BCA", "MCA", "DCA"],
     },
     {
-      icon: <FlaskConical className="w-8 h-8 text-orange-600" />, // Changed color for variety
+      icon: <FlaskConical className="w-8 h-8 text-gray-450" />, // Changed color for variety
       title: "Sciences",
       institute: "Institute of Science & Technology",
       programs: ["B.Sc (PCS, PCM, CBZ)", "M.Sc", "B.Sc (Hons)"],
     },
     {
-      icon: <Hotel className="w-8 h-8 text-pink-600" />, // New icon for Hotel Management
+      icon: <Hotel className="w-8 h-8 text-gray-450" />, // New icon for Hotel Management
       title: "Hotel Management",
       institute: "Institute of Hotel Management",
       programs: ["BHMCT", "DHM", "Food Technology"],
     },
     {
-      icon: <Gavel className="w-8 h-8 text-red-600" />, // New icon for Law
+      icon: <Gavel className="w-8 h-8 text-gray-450" />, // New icon for Law
       title: "Law",
       institute: "Institute of Law",
       programs: ["BA LLB", "LLB", "LLM"],
     },
     {
-      icon: <Film className="w-8 h-8 text-teal-600" />, // New icon for Media Studies
+      icon: <Film className="w-8 h-8 text-gray-450" />, // New icon for Media Studies
       title: "Media Studies",
       institute: "Institute of Media & Communication",
       programs: ["BJMC", "MJMC", "Digital Media"],
     },
     {
-      icon: <GraduationCap className="w-8 h-8 text-yellow-600" />, // New icon for Education
+      icon: <GraduationCap className="w-8 h-8 text-gray-450" />, // New icon for Education
       title: "Education",
       institute: "Institute of Education",
       programs: ["B.Ed", "D.El.Ed", "M.Ed"],
     },
   ];
 
-// Star particle effect for apply section background
-const StarParticle = () => {
-  const [x] = useState(Math.random() * 100);
-  const [delay] = useState(Math.random() * 5);
-  const [duration] = useState(Math.random() * 4+ 3); // Faster
-  const [size] = useState(Math.random() * 8 + 7); // Larger
-  
-  // Multiple color options
-  const colors = ['#FFD700', '#FFA500', '#FF6347', '#FF69B4'];
-  const color = colors[Math.floor(Math.random() * colors.length)];
-
-  return (
-    <motion.div
-      className="absolute pointer-events-none select-none"
-      style={{
-        left: `${x}%`,
-        width: `${size}px`,
-        height: `${size}px`,
-        backgroundColor: color,
-        clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-        boxShadow: `0 0 ${size}px ${size/2}px ${color}`,
-      }}
-      initial={{ y: -10, opacity: 0 }}
-      animate={{ 
-        y: '100vh', 
-        opacity: [0, 0.8, 0],
-        rotate: 360, // Add rotation
-      }}
-      transition={{
-        delay,
-        duration,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    />
-  );
-};
-
+ 
 
 const App = () => {
 
@@ -164,36 +127,9 @@ const App = () => {
         loadScript()
       }, [])
 
-//APPLY SECTION state for start particles
- const [particles, setParticles] = useState([]);
-  useEffect(() => {
-    
-    setParticles(Array.from({ length: 80 }, (_, i) => i));
-  }, []);
+ 
 
-    // Animation variants for the looping words
-  const wordVariants = {
-    enter: {
-      opacity: 0,
-      y: 20,
-    },
-    center: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: {
-        duration: 0.5,
-        ease: "easeIn",
-      },
-    },
-  };
+   
 
 //drop in effect for hero section text
  const dropIn = {
@@ -213,53 +149,137 @@ const App = () => {
     },
   };
 
-  const words = ["Educate...", "Empower...", "Excel..."];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+ 
 
-    useEffect(() => {
-    // Set up a timer to cycle through the words every 3 seconds
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2300); // 3 seconds delay
 
-    // Clear the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  // Hiring section
+  const logos = [
+              {id: 1, alt: "TCS", src: "/logos/tcs.png" },
+              { id: 2, alt: "Infosys", src: "/logos/infosys.png" },
+              { id: 3,alt: "Wipro", src: "/logos/wipro.png" },
+              { id: 4,alt: "Amazon", src: "/logos/amazon.png" },
+              { id: 5,alt: "Microsoft", src: "/logos/microsoft.png" },
+              { id: 6,alt: "HCL", src: "/logos/hcl.png" },
+              { id: 7,alt: "Accenture", src: "/logos/accenture.png" },
+               { id: 8,alt: "Capgemini", src: "/logos/capgemini.png" },
+                { id: 9,alt: "Deloitte", src: "/logos/deloitte.png" },
+                 { id: 10,alt: "Tech Mahindra", src: "/logos/tech_mahindra.png" },
+                  
+            ];
+
+
+  const containerRef = useRef(null);
+  const angleRef = useRef(0);
+  const radius = 160;
+  const speed = 0.005;
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const logoElements = container.querySelectorAll('.logo-item');
+    const centerX = container.offsetWidth / 2;
+    const centerY = container.offsetHeight / 2;
+
+    const animate = () => {
+      angleRef.current += speed;
+
+      logoElements.forEach((logo, index) => {
+        const angle = angleRef.current + (index * (2 * Math.PI / logoElements.length));
+        const x = centerX + Math.cos(angle) * radius - logo.offsetWidth / 2;
+        const y = centerY + Math.sin(angle) * radius - logo.offsetHeight / 2;
+        
+        const scale = 0.8 + 0.2 * Math.sin(angle);
+        const opacity = 0.7 + 0.3 * Math.sin(angle);
+        
+        logo.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+        logo.style.opacity = opacity;
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    const animationId = requestAnimationFrame(animate);
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
 
 
   return (
     <div className="font-sans text-gray-800">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          {/* Logo */}
-          <div className="w-full md:mx-auto flex justify-center md:justify-start ">
-            <img 
-              src= {sarojLogo}
-              alt="Saroj University Logo"
-              className="h-12"
-            />
-          </div>
-          
-          {/* Contact Info */}
-          <div className="hidden md:flex items-center space-x-6 ml-auto">
-            <a href="tel:+919513731275" className="flex items-center text-gray-700 hover:text-blue-600">
-              <Phone className="w-5 h-5 mr-2" />
-              <span>+919513731275</span>  
-             
-            </a>
-            <a href="mailto:info@sarojuniversity.edu.in" className="flex items-center text-gray-700 hover:text-blue-600">
-              <Mail className="w-5 h-5 mr-2" />
-              <span>info@sarojuniversity.edu.in</span>
-            </a>
-          </div>
-        </div>
-      </header>
+<header className="bg-white shadow-sm sticky top-0 z-50">
+  <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    {/* Logo */}
+    <div className="w-full md:mx-auto flex justify-center md:justify-start ">
+      <img
+        src={ssitmLogo}
+        alt="Shivdan Singh Institute of Technology & Management Logo"
+        className="h-12"
+      />
+    </div>
 
-      {/* Hero Section - Image and text */}
+    {/* Contact Info */}
+    <div className="hidden md:flex items-center space-x-6 text-gray-700"> 
+      
+      <div className="flex flex-col items-start justify-center text-sm font-medium">
+         
+          <a href="tel:+919555699988" className="flex items-center hover:text-orange-800">
+              {/* Phone Icon with orange circle background */}
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2"> 
+                  <Phone className="w-4 h-4 text-orange-600" />  
+              </div>
+              <span className="whitespace-nowrap">+919555699988</span>
+          </a>
+      </div>
+
+      {/* Email */}
+      <a href="mailto:admission.cell@seglko.org" className="flex items-center hover:text-orange-800">
+          
+          <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2">
+              <Mail className="w-4 h-4 text-orange-600" />  
+          </div>
+          <span>admission.cell@seglko.org</span>
+      </a>
+
+      {/* Social Media - Grouped */}
+      <div className="flex items-center space-x-3">
+          <a href="https://www.facebook.com/ssitmalg" target="_blank" rel="noopener noreferrer" className="hover:text-orange-800">
+
+              {/* Facebook Icon  */}
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                  <Facebook className="w-4 h-4 text-orange-600" /> 
+              </div>
+          </a>
+          <a href="https://www.instagram.com/ssitmalg" target="_blank" rel="noopener noreferrer" className="hover:text-orange-800">
+              {/* Instagram Icon */}
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                  <Instagram className="w-4 h-4 text-orange-600" /> 
+              </div>
+          </a>
+      </div>
+
+       
+      <span className="whitespace-nowrap">AKTU Code: 007</span>
+      <a
+        href="https://seglko.in8.nopaperforms.com/" // Replace with your actual apply now page URL
+        className="bg-orange-600 text-white px-4 py-2 rounded-md  
+                   hover:bg-orange-700 transition-colors duration-300
+                   shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-75 whitespace-nowrap"
+                   target="blank"
+      >
+        APPLY NOW
+      </a>
+    </div>
+  </div>
+</header>
+
+  
+      {/* Hero Section */}
    <section className="relative w-full h-[800px] overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1496469888073-80de7e952517"
+        src="https://img.freepik.com/premium-photo/group-happy-students-sitting-college-campus-garden-with-books_1223255-59407.jpg"
         alt="Hero Background"
         className="w-full h-full object-cover"
       />
@@ -273,7 +293,7 @@ const App = () => {
             transition={{ delay: 1, ...dropIn.visible.transition }}
             className="text-2xl md:text-6xl font-extrabold mb-4"
           >
-            SAROJ INTERNATIONAL UNIVERSITY
+           Shivdan Singh Institute of Technology & Management
           </motion.h1>
 
           <motion.h2
@@ -283,35 +303,221 @@ const App = () => {
             transition={{ delay: 1.5, ...dropIn.visible.transition }}
             className="text-xl md:text-4xl font-medium mb-8"
           >
-            India’s Gateway to Next-Gen Education
+            Empowering future leaders with quality education and cutting-edge technology.
           </motion.h2>
 
-          {/* New section for the looping words */}
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={currentWordIndex}
-              variants={wordVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="text-xl md:text-4xl font-semibold text-yellow-300"
-            >
-              {words[currentWordIndex]}
-            </motion.p>
-          </AnimatePresence>
+         
         </div>
       </div>
     </section>
 
-      {/* Application Section */}
-       <section className="py-16 bg-gray-50 relative overflow-hidden">
-      {/* Yellow Star Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((particle) => (
-          <StarParticle key={particle} />
-        ))}
+    {/* Hiring Partners */}
+       <section className="py-10 bg-orange-50 pb-40 ">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+       
+  <div className="text-center mb-12 font-funneldisplay px-4 sm:px-6">
+  {/* Heading Row with Icon & Text */}
+  <div className="flex items-center justify-center gap-3 flex-wrap pt-12">
+    <GraduationCap className="w-10 h-10 md:w-20 md:h-20 text-black-800" />
+    <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight text-center">
+      OUR ESTEEMED <span className="text-orange-500">HIRING PARTNERS</span>
+    </h2>
+  </div>
+ 
+
+  {/* Description Paragraph */}
+  <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-6">
+    Shivdan Singh Institute of Technology & Management collaborates with industry leaders to bridge 
+    the gap between academia and the professional world.
+  </p>
+</div>
+
+
+
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Left Content */}
+          <div className="lg:w-1/2 space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-gray-900">
+                Why Partner With Us?
+              </h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="bg-orange-100 p-2 rounded-lg mr-4">
+                    <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-1">Industry-Ready Graduates</h4>
+                    <p className="text-gray-600">
+                      Our curriculum is co-designed with industry leaders to ensure immediately applicable skills.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="bg-purple-100 p-2 rounded-lg mr-4">
+                    <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-1">Custom Talent Pipeline</h4>
+                    <p className="text-gray-600">
+                      Work with us to develop specialized training programs for your specific needs.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-2 rounded-lg mr-4">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-1">Research Collaboration</h4>
+                    <p className="text-gray-600">
+                      Access cutting-edge university research and innovation projects.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+
+          {/* Right Logo Carousel */}
+          <div className="lg:w-1/2 relative h-96 w-full">
+            <div 
+              ref={containerRef}
+              className="relative w-full h-full"
+            >
+              {logos.map((logo) => (
+                <div 
+                  key={logo.id}
+                  className="logo-item absolute w-28 h-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    willChange: 'transform, opacity'
+                  }}
+                >
+                  <img 
+                    src={logo.src} 
+                    alt={logo.alt}
+                    className="w-full h-full object-contain  transition-all duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Center Stats */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="bg-white p-6 rounded-full shadow-xl border border-gray-100 text-center w-40 h-40 flex flex-col items-center justify-center">
+                <span className="text-3xl font-bold text-orange-600">45+</span>
+                <p className="text-gray-600 text-sm mt-2">Global Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+ {/* Research Excellence */}
+      <section className="relative bg-gradient-to-br from-orange-900 to-violet-700 text-white py-10 px-4 overflow-hidden">
+  {/* Background pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')]"></div>
+  </div>
+
+  <div className="container mx-auto max-w-6xl relative z-10 text-center">
+    <div className="flex items-center justify-center flex-wrap gap-3 mb-4">
+      <GraduationCap className="w-10 h-10 md:w-14 md:h-14 text-black-800" />
+      <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+        <span className="text-white">RESEARCH </span>
+        <span className="text-orange-500">EXCELLENCE</span>
+      </h2>
+    </div>
+
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Left content */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="space-y-6 text-left"
+      >
+        <h3 className="text-xl md:text-4xl max-w-3xl">
+          Join Our Pioneering Research Community
+        </h3>
+        <img
+          src="https://cdn.pixabay.com/photo/2023/10/27/06/02/clinical-trial-consulting-8344100_1280.jpg"
+          alt="Research Lab"
+          className="h-80 w-full object-cover rounded-lg border-1 border-white shadow-2xl"
+        />
+        <p className="text-lg text-orange-100 max-w-lg">
+          At Shivdan Singh Institute of Technology & Management, we're shaping the future through groundbreaking discoveries.
+        </p>
+      </motion.div>
+
+      {/* Right content */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 text-left space-y-6"
+      >
+        <div>
+          <h4 className="text-xl font-semibold mb-2 text-white">
+            SSITM RESEARCH INITIATIVES
+          </h4>
+          <p className="text-orange-100">
+            Recognized by the Ministry of Education for excellence in Sustainable Energy and Environmental Research.
+          </p>
+        </div>
+
+        <div>
+          <p className="text-orange-100">
+            Our faculty is nationally recognized for their academic excellence and contributions to innovation.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-white/20 p-4 rounded-lg">
+            <p className="text-sm text-orange-100">
+              Pioneering research recognized across national innovation and patent initiatives.
+            </p>
+          </div>
+          <div className="bg-white/20 p-4 rounded-lg">
+            <p className="text-sm text-orange-100">
+              Supported by the Government of India for impactful scientific advancement.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
       
+  {/* Application Section */}
+       <section className="py-16 bg-orange-50 relative overflow-hidden pt-20">
+
+<div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 px-4 text-center sm:text-left pb-5 md:pb-15 md:pt-18">
+  <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-black-800" />
+  <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900">
+    <span className="text-black">ADMISSION </span>
+    <span className="text-orange-500">PROCESS</span>
+  </h2>
+</div>
+
+
+
       {/* Content - Keeping original styling */}
       <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-12 relative z-10">
         {/* Left Side - How to Apply */}
@@ -330,7 +536,7 @@ const App = () => {
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
-              <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 text-blue-600">
+              <div className="bg-orange-100 p-2 rounded-full mr-4 mt-1 text-orange-600">
                 <FileText className="w-5 h-5" />
               </div>
               <div>
@@ -346,7 +552,7 @@ const App = () => {
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
-              <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 text-blue-600">
+              <div className="bg-orange-100 p-2 rounded-full mr-4 mt-1 text-orange-600">
                 <Upload className="w-5 h-5" />
               </div>
               <div>
@@ -362,7 +568,7 @@ const App = () => {
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
-              <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 text-blue-600">
+              <div className="bg-orange-100 p-2 rounded-full mr-4 mt-1 text-orange-600">
                 <Search className="w-5 h-5" />
               </div>
               <div>
@@ -378,7 +584,7 @@ const App = () => {
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
-              <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1 text-blue-600">
+              <div className="bg-orange-100 p-2 rounded-full mr-4 mt-1 text-orange-600">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -406,70 +612,9 @@ const App = () => {
       </div>
     </section>
 
-  {/* Research Excellence */}
-       <section className="relative bg-gradient-to-br from-blue-900 to-violet-700 text-white py-20 px-4 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')]"></div>
-      </div>
-
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-light tracking-wider">RESEARCH EXCELLENCE</h3>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Join Our Pioneering <br /> Research Community
-            </h2>
-            <p className="text-lg text-blue-100 max-w-lg">
-              At Saroj International University, we're shaping the future through groundbreaking discoveries.
-            </p>
-          </motion.div>
-
-          {/* Right content */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20"
-          >
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">SAROJ RESEARCH INITIATIVES</h3>
-              <p className="text-blue-100">
-                Recognized by the Ministry of Education for excellence in Sustainable Energy and Environmental Research
-              </p>
-            </div>
-
-            <div className="mb-6">
-              <p className="text-blue-100">
-                Our faculty includes 12 Awardees and 65 Fellows of National Academies.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-white/20 p-4 rounded-lg">
-                <h4 className="text-3xl font-bold mb-1">40K+</h4>
-                <p className="text-sm text-blue-100">National Ranking for Patents</p>
-              </div>
-              <div className="bg-white/20 p-4 rounded-lg">
-                <h4 className="text-lg font-semibold mb-1">Recognized by</h4>
-                <p className="text-sm text-blue-100">Government of India</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
 
 {/* Specialized Departments */}
- <section className="py-16 bg-blue-50">
+   <section className="py-16 bg-orange-50"> {/* Very light orange background, matching the image */}
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -477,12 +622,19 @@ const App = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specialized Departments</h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 px-4 text-center sm:text-left pb-5 ">
+            {/* The GraduationCap icon should be consistent with the other icons in orange-600 */}
+            <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-orange-600" />
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900">
+              <span className="text-gray-900">OUR </span> {/* Changed 'black' to 'gray-900' for better contrast with light background */}
+              <span className="text-orange-600">SPECIALIZED DEPARTMENTS</span> {/* Used orange-600 for a slightly deeper orange */}
+            </h2>
+          </div>
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
+            className="h-1 bg-orange-400 w-24 mx-auto mt-4 rounded-full" // Added a subtle orange line below the heading
           />
         </motion.div>
 
@@ -491,19 +643,19 @@ const App = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" // Adjusted grid columns for more items
+          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" // Adjusted grid columns for more items and better flow
         >
           {departments.map((dept, index) => (
             <motion.div
               key={index}
               variants={item}
               whileHover={hoverEffect}
-              className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all shadow-md flex flex-col" // Added flex-col for better layout
+              className="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-500 hover:bg-white transition-all shadow-md flex flex-col" // Kept card background white, border changes to orange on hover, light shadow
             >
               <div className="flex items-center mb-4">
                 <motion.div
                   whileHover={{ rotate: 10 }}
-                  className="w-12 h-12 bg-blue-100 rounded-full shadow-sm flex items-center justify-center mr-4" // Changed bg-white to bg-blue-100 for consistency
+                  className="w-12 h-12 bg-orange-100 rounded-full shadow-sm flex items-center justify-center mr-4" // Maintained light orange circle for icon background
                 >
                   {dept.icon}
                 </motion.div>
@@ -517,7 +669,7 @@ const App = () => {
                 <ul className="space-y-2">
                   {dept.programs.map((program, pIndex) => (
                     <li key={pIndex} className="flex items-center text-gray-600 text-sm">
-                      <CheckSquare className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" /> {/* Checkmark icon */}
+                      <CheckSquare className="w-4 h-4 text-orange-500 mr-2 flex-shrink-0" /> {/* Changed checkmark to orange-500 */}
                       {program}
                     </li>
                   ))}
@@ -529,134 +681,73 @@ const App = () => {
       </div>
     </section>
 
-      {/* Testimonials */}
-  <section className="py-25 bg-gray-100">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-10">
-      <h2 className="text-3xl font-bold text-blue-900 mb-2">What Our Students Say</h2>
-      <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-    </div>
 
-    <div className="grid md:grid-cols-2 gap-6">
-      {/* Testimonial 1 */}
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="bg-white p-6 rounded-lg shadow-sm border border-blue-100"
-      >
-        <p className="text-purple-800 italic mb-4">"The faculty support for research projects with industry collaborations has been exceptional."</p>
-        <p className="font-medium text-blue-900">Rahul Sharma</p>
-        <p className="text-sm text-pink-600">B.Tech Computer Science, 2022</p>
-      </motion.div>
-
-      {/* Testimonial 2 */}
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="bg-white p-6 rounded-lg shadow-sm border border-blue-100"
-      >
-        <p className="text-purple-800 italic mb-4">"Secured my dream job at a top IT company with the placement cell's guidance."</p>
-        <p className="font-medium text-blue-900">Priya Patel</p>
-        <p className="text-sm text-pink-600">MBA, 2021</p>
-      </motion.div>
-
-      {/* Testimonial 3 */}
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="bg-white p-6 rounded-lg shadow-sm border border-blue-100"
-      >
-        <p className="text-purple-800 italic mb-4">"Published multiple research papers with guidance from our award-winning faculty."</p>
-        <p className="font-medium text-blue-900">Arjun Mehta</p>
-        <p className="text-sm text-pink-600">PhD Research, 2023</p>
-      </motion.div>
-
-      {/* Testimonial 4 */}
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="bg-white p-6 rounded-lg shadow-sm border border-blue-100"
-      >
-        <p className="text-purple-800 italic mb-4">"The patent support team helped me file 3 patents during my engineering program."</p>
-        <p className="font-medium text-blue-900">Neha Gupta</p>
-        <p className="text-sm text-pink-600">M.Tech, 2022</p>
-      </motion.div>
-    </div>
-  </div>
-</section>
-
-      {/* Hiring Partners */}
-      <section className="py-16 bg-gray-50 h-auto">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Hiring Partners</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Leading organizations that recruit Saroj University graduates
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-5 rounded-lg shadow-md border border-gray-200 ">
-            {[
-              { name: "TCS", logo: "/logos/tcs.png" },
-              { name: "Infosys", logo: "/logos/infosys.png" },
-              { name: "Wipro", logo: "/logos/wipro.png" },
-              { name: "Amazon", logo: "/logos/amazon.png" },
-              { name: "Microsoft", logo: "/logos/microsoft.png" },
-              { name: "HCL", logo: "/logos/hcl.png" },
-              { name: "", logo: "/logos/accenture.png" },
-               { name: "", logo: "/logos/capgemini.png" },
-                { name: "", logo: "/logos/deloitte.png" },
-                 { name: "", logo: "/logos/tech_mahindra.png" },
-                  
-            ].map((company, index) => (
-              <div key={index} className="bg-white p-4  flex items-center justify-center">
-                <img 
-                  src={company.logo} 
-                  alt={company.name}
-                  className="h-16 object-cover transition-all"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Footer cta */}
+       <section className="bg-gradient-to-r from-purple-900 via-indigo-600 to-blue-600 py-16 text-center text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          Start Your Journey today in Technology and Management?
+        </h2>
+        <p className="text-lg mb-8">
+          Join Shivdan Singh Institute of Technology and Management and be a part of the future of innovation.
+        </p>
+        
+          <a href='https://seglko.in8.nopaperforms.com/' className="px-8 py-3 bg-black hover:bg-gray-800 transition duration-300 text-white rounded-full border border-white">
+            Apply Now
+          </a>
+      
+      </div>
+    </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <footer className="bg-black text-white py-12">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10">
           <div>
-            <div className="flex items-center mb-4">
+            <div className="flex items-center space-x-3">
             <img 
-              src= "/favicon.png"
-              alt="Saroj University Logo"
-              className="h-12"
+              src= "/ssitm-logo.png"
+              alt="Shivdan Singh Institute of Technology & Management Logo"
+              className="h-10 w-auto object-contain"
             />
-              <h3 className="text-xl font-bold">Saroj University</h3>
+              <p className="text-xl">Shivdan Singh Institute of Technology & Management</p>
             </div>
-            <p className="text-gray-400">
-              Empowering students through quality education and industry-relevant skills since 2005.
+
+            <p className="text-white">
+              Empowering students through quality education and industry-relevant skills.
             </p>
+               <div className="flex gap-4 mt-6">
+              <a href="https://www.facebook.com/ssitmalg" className="text-white" target= "_blank">
+                <Facebook size={20} />
+              </a>
+              <a href="https://www.instagram.com/ssitmalg" className="text-white" target = "_blank">
+                <Instagram size={20} />
+              </a>
+              
+            </div>
           </div>
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-3 text-gray-400">
+            <div className="space-y-3 text-white">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
-                <a href="tel:+919513731275">+91-9513731275</a>
+                <a href="tel:+919513731275">+91-9555699988</a>
 
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
-                <span>info@sarojuniversity.edu.in</span>
+                <span>admission.cell@seglko.org</span>
               </div>
               <div className="flex items-center">
-                <MapPin className="w-10 h-10 mr-2" />
-                <span>12th Km Stone, Sultanpur Road, Near Purvanchal Expressway, Gosaiganj, Lucknow, Uttar Pradesh - 226022</span>
+                <MapPin className="w-5 h-5 mr-2" />
+                <span>10th KM Stone, Aligarh–Mathura Road, Aligarh, Uttar Pradesh,India 202001</span>
               </div>
             </div>
           </div>
         </div>
         
         <div className="container mx-auto px-4 pt-8 mt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} Saroj University. All Rights Reserved.
+          © {new Date().getFullYear()} Shivdan Singh Institute of Technology & Management. All Rights Reserved.
         </div>
       </footer>
     </div>
