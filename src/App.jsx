@@ -1,8 +1,10 @@
 import {CheckSquare, Hotel, Gavel,Film,Phone, Mail, GraduationCap, Briefcase, FlaskConical, Laptop, MapPin, Facebook, Instagram} from 'lucide-react';
 import { useEffect, useState, useRef } from "react";
-import ssitmLogo from "./assets/ssitm-logo.png";
 import { FileText, Upload, Search, } from 'lucide-react';  
 import { motion ,AnimatePresence} from "framer-motion";
+import AILearningComponent from './components/AiTag';
+import Header from './components/Header';
+import Hero from './components/Hero';
  
 // Animation variants for RESEARCH SECTION starts
   const container = {
@@ -127,31 +129,6 @@ const App = () => {
         loadScript()
       }, [])
 
- 
-
-   
-
-//drop in effect for hero section text
- const dropIn = {
-    hidden: {
-      y: -100,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 8.8,
-        type: "spring",
-        damping: 15,
-        stiffness: 100,
-      },
-    },
-  };
-
- 
-
-
   // Hiring section
   const logos = [
               {id: 1, alt: "TCS", src: "/logos/tcs.png" },
@@ -208,108 +185,10 @@ const App = () => {
 
   return (
     <div className="font-sans text-gray-800">
-      {/* Header */}
-<header className="bg-white shadow-sm sticky top-0 z-50">
-  <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-    {/* Logo */}
-    <div className="w-full md:mx-auto flex justify-center md:justify-start ">
-      <img
-        src={ssitmLogo}
-        alt="Shivdan Singh Institute of Technology & Management Logo"
-        className="h-12"
-      />
-    </div>
 
-    {/* Contact Info */}
-    <div className="hidden md:flex items-center space-x-6 text-gray-700"> 
-      
-      <div className="flex flex-col items-start justify-center text-sm font-medium">
-         
-          <a href="tel:+919555699988" className="flex items-center hover:text-orange-800">
-              {/* Phone Icon with orange circle background */}
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2"> 
-                  <Phone className="w-4 h-4 text-orange-600" />  
-              </div>
-              <span className="whitespace-nowrap">+919555699988</span>
-          </a>
-      </div>
-
-      {/* Email */}
-      <a href="mailto:admission.cell@seglko.org" className="flex items-center hover:text-orange-800">
-          
-          <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2">
-              <Mail className="w-4 h-4 text-orange-600" />  
-          </div>
-          <span>admission.cell@seglko.org</span>
-      </a>
-
-      {/* Social Media - Grouped */}
-      <div className="flex items-center space-x-3">
-          <a href="https://www.facebook.com/ssitmalg" target="_blank" rel="noopener noreferrer" className="hover:text-orange-800">
-
-              {/* Facebook Icon  */}
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <Facebook className="w-4 h-4 text-orange-600" /> 
-              </div>
-          </a>
-          <a href="https://www.instagram.com/ssitmalg" target="_blank" rel="noopener noreferrer" className="hover:text-orange-800">
-              {/* Instagram Icon */}
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <Instagram className="w-4 h-4 text-orange-600" /> 
-              </div>
-          </a>
-      </div>
-
-       
-      <span className="whitespace-nowrap">AKTU Code: 007</span>
-      <a
-        href="https://seglko.in8.nopaperforms.com/" // Replace with your actual apply now page URL
-        className="bg-orange-600 text-white px-4 py-2 rounded-md  
-                   hover:bg-orange-700 transition-colors duration-300
-                   shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-75 whitespace-nowrap"
-                   target="blank"
-      >
-        APPLY NOW
-      </a>
-    </div>
-  </div>
-</header>
-
-  
-      {/* Hero Section */}
-   <section className="relative w-full h-[800px] overflow-hidden">
-      <img
-        src="https://img.freepik.com/premium-photo/group-happy-students-sitting-college-campus-garden-with-books_1223255-59407.jpg"
-        alt="Hero Background"
-        className="w-full h-full object-cover"
-      />
-
-      <div className="absolute inset-x-0 top-0 flex justify-center pt-30 px-4">
-        <div className="text-white text-center w-full max-w-9xl">
-          <motion.h1
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1, ...dropIn.visible.transition }}
-            className="text-2xl md:text-6xl font-extrabold mb-4"
-          >
-           Shivdan Singh Institute of Technology & Management
-          </motion.h1>
-
-          <motion.h2
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.5, ...dropIn.visible.transition }}
-            className="text-xl md:text-4xl font-medium mb-8"
-          >
-            Empowering future leaders with quality education and cutting-edge technology.
-          </motion.h2>
-
-         
-        </div>
-      </div>
-    </section>
+      <Header />
+      <Hero />
+    <AILearningComponent />
 
     {/* Hiring Partners */}
        <section className="py-10 bg-orange-50 pb-40 ">
