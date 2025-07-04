@@ -1,5 +1,6 @@
 import ssitmLogo from "../assets/ssitm-logo.png";
 import { Phone, Mail, Facebook, Instagram,  } from "lucide-react"
+
 const Header = ()=>{
     return (
 <header className="bg-white shadow-sm sticky top-0 z-50">
