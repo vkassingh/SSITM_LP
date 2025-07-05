@@ -1,7 +1,7 @@
 import {Phone, Mail, MapPin,Facebook, Instagram} from "lucide-react"
 function Footer(){
     return (
-         <footer className="bg-black text-white py-12">
+            <footer className="bg-black text-white py-12">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10">
           <div>
             <div className="flex items-center space-x-3">

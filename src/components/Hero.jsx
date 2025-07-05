@@ -19,7 +19,7 @@ const Hero = ()=>  {
   };
   
     return (
-         <section className="relative w-full h-[800px] overflow-hidden">
+     <section className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh]  overflow-hidden">
       <img
         src="https://img.freepik.com/premium-photo/group-happy-students-sitting-college-campus-garden-with-books_1223255-59407.jpg"
         alt="Hero Background"

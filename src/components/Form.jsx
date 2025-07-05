@@ -3,7 +3,7 @@ import {motion } from "framer-motion";
 
 function Form(){
     return(
-            <section className="py-16 bg-orange-50 relative overflow-hidden pt-20">
+          <section className="py-16 bg-orange-50 relative overflow-hidden pt-20">
 
 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 px-4 text-center sm:text-left pb-5 md:pb-15 md:pt-18">
   <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-black-800" />
@@ -18,7 +18,7 @@ function Form(){
       {/* Content - Keeping original styling */}
       <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-12 relative z-10">
         {/* Left Side - How to Apply */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -29,7 +29,7 @@ function Form(){
 
           <div className="space-y-6">
             {/* Online Application */}
-            <motion.div 
+            <motion.div
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
@@ -45,7 +45,7 @@ function Form(){
             </motion.div>
 
             {/* Document Submission */}
-            <motion.div 
+            <motion.div
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
@@ -61,7 +61,7 @@ function Form(){
             </motion.div>
 
             {/* Application Review */}
-            <motion.div 
+            <motion.div
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
@@ -77,7 +77,7 @@ function Form(){
             </motion.div>
 
             {/* Admission Offer */}
-            <motion.div 
+            <motion.div
               whileHover={{ x: 5 }}
               className="flex items-start"
             >
@@ -93,9 +93,9 @@ function Form(){
             </motion.div>
           </div>
         </motion.div>
-        
+
         {/* Right Side - Form */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -103,7 +103,7 @@ function Form(){
           className="lg:w-1/2 bg-white p-8 rounded-xl shadow-sm border border-gray-200"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Admission Inquiry Form</h3>
-          
+
           <div className="npf_wgts" data-height="600" data-w="c4686ca3db50effadb9f24fc7ca22401"></div>
         </motion.div>
       </div>

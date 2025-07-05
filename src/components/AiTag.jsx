@@ -1,7 +1,7 @@
 import { BookOpen, Brain, Settings } from 'lucide-react'; 
 const AILearningComponent = () => {
   return (
-    <div className="w-full max-w-8xl bg-black rounded-lg shadow-xl overflow-hidden border-2 border-orange-600">
+    <div className="w-full max-w-8xl bg-black rounded-lg shadow-xl overflow-hidden border-2 border-orange-600 h-auto">
     <div className="p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
 
   {/* Left Section: Icon and Title */}

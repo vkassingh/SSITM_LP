@@ -133,36 +133,35 @@ return (
           </div>
 
           {/* Right Logo Carousel */}
-          <div className="lg:w-1/2 relative h-96 w-full">
-            <div 
-              ref={containerRef}
-              className="relative w-full h-full"
-            >
-              {logos.map((logo) => (
-                <div 
-                  key={logo.id}
-                  className="logo-item absolute w-28 h-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    willChange: 'transform, opacity'
-                  }}
-                >
-                  <img 
-                    src={logo.src} 
-                    alt={logo.alt}
-                    className="w-full h-full object-contain  transition-all duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+<div className="relative w-full max-w-full h-96 overflow-hidden lg:w-1/2 mx-auto px-4">
+  <div ref={containerRef} className="relative w-full h-full">
+    {logos.map((logo) => (
+      <div
+        key={logo.id}
+        className="logo-item absolute w-20 h-10 sm:w-24 sm:h-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        style={{
+          willChange: 'transform, opacity',
+        }}
+      >
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          className="w-full h-full object-contain transition-all duration-300"
+        />
+      </div>
+    ))}
+  </div>
 
-            {/* Center Stats */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="bg-white p-6 rounded-full shadow-xl border border-gray-100 text-center w-40 h-40 flex flex-col items-center justify-center">
-                <span className="text-3xl font-bold text-orange-600">45+</span>
-                <p className="text-gray-600 text-sm mt-2">Global Partners</p>
-              </div>
-            </div>
-          </div>
+  {/* Center Stats */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-4">
+    <div className="bg-white p-4 sm:p-6 rounded-full shadow-xl border border-gray-100 text-center w-32 h-32 sm:w-40 sm:h-40 flex flex-col items-center justify-center">
+      <span className="text-2xl sm:text-3xl font-bold text-orange-600">45+</span>
+      <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">Global Partners</p>
+    </div>
+  </div>
+</div>
+
+
         </div>
       </div>
     </section>
