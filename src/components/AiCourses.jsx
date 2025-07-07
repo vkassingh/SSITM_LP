@@ -24,7 +24,7 @@ function AiCourses() {
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> 10+2 with Physics, Chemistry, Maths (PCM) or equivalent with min. 45%</p>
 
                             </div>
-                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="w-full block py-2 text-center text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500">Apply Now</a>
 
                         </div>
                     </div>
@@ -38,13 +38,13 @@ function AiCourses() {
                             <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700 mb-4">
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> 10+2 with Physics, Chemistry, Maths (PCM) or equivalent with min. 45%</p>
                             </div>
-                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="w-full block text-center py-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500">Apply Now</a>
 
                         </div> 
                     </div>
 
                     {/* Course Card 3: M.Tech - Artificial Intelligence and Data Science */}
-                    <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-sm w-full transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-sm  transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                         <img src="https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg" alt="AI and Data Science" className="w-full h-48 object-cover object-center" />
                         <div className="p-6">
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">M.Tech - Artificial Intelligence and Data Science</h3>
@@ -52,7 +52,7 @@ function AiCourses() {
                             <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700 mb-4">
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> B.E./B.Tech in relevant discipline with min. 50%</p>
                             </div>
-                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="w-full block py-2 text-sm text-center text-white bg-orange-500 rounded-lg border-2 border-orange-500">Apply Now</a>
 
                         </div>
                     </div>
