@@ -25,7 +25,7 @@ function Form(){
           viewport={{ once: true }}
           className="lg:w-1/2 mx-auto px-4 py-8 bg-white rounded-lg"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">How to Apply</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">How to Apply</h2>
 
           <div className="space-y-6">
             {/* Online Application */}
