@@ -99,7 +99,7 @@ function Departments(){
                >
                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 px-4 text-center sm:text-left pb-5 ">
                    {/* The GraduationCap icon should be consistent with the other icons in orange-600 */}
-                   <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-orange-600" />
+                   <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-black-600" />
                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900">
                      <span className="text-gray-900">OUR </span> {/* Changed 'black' to 'gray-900' for better contrast with light background */}
                      <span className="text-orange-600">SPECIALIZED DEPARTMENTS</span> {/* Used orange-600 for a slightly deeper orange */}

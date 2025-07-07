@@ -138,7 +138,7 @@ return (
     {logos.map((logo) => (
       <div
         key={logo.id}
-        className="logo-item absolute w-20 h-10 sm:w-24 sm:h-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="bg-transparent logo-item absolute w-24 h-12 sm:w-28 sm:h-16 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           willChange: 'transform, opacity',
         }}

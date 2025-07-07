@@ -20,9 +20,12 @@ function AiCourses() {
                         <div className="p-6">
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">B.Tech - Computer Science and Engineering (Artificial Intelligence)</h3>
                             <p className="text-sm text-gray-600 mb-4">Duration: <span className="font-medium text-orange-600">4 Years</span></p>
-                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700">
+                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700 mb-4">
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> 10+2 with Physics, Chemistry, Maths (PCM) or equivalent with min. 45%</p>
+
                             </div>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+
                         </div>
                     </div>
 
@@ -32,10 +35,12 @@ function AiCourses() {
                         <div className="p-6">
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">B.Tech - Computer Science and Engineering (Artificial Intelligence & Machine Learning)</h3>
                             <p className="text-sm text-gray-600 mb-4">Duration: <span className="font-medium text-orange-600">4 Years</span></p>
-                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700">
+                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700 mb-4">
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> 10+2 with Physics, Chemistry, Maths (PCM) or equivalent with min. 45%</p>
                             </div>
-                        </div>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+
+                        </div> 
                     </div>
 
                     {/* Course Card 3: M.Tech - Artificial Intelligence and Data Science */}
@@ -44,9 +49,11 @@ function AiCourses() {
                         <div className="p-6">
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">M.Tech - Artificial Intelligence and Data Science</h3>
                             <p className="text-sm text-gray-600 mb-4">Duration: <span className="font-medium text-orange-600">2 Years</span></p>
-                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700">
+                            <div className="bg-orange-50 rounded-lg p-3 text-sm text-gray-700 mb-4">
                                 <p><span className="font-semibold text-orange-700">Eligibility:</span> B.E./B.Tech in relevant discipline with min. 50%</p>
                             </div>
+                            <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="px-29 p-2 text-sm text-white bg-orange-500 rounded-lg border-2 border-orange-500 m-3">Apply Now</a>
+
                         </div>
                     </div>
 

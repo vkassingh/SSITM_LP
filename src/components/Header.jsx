@@ -1,5 +1,5 @@
 import ssitmLogo from "../assets/ssitm-logo.png";
-import { Phone, Mail, Facebook, Instagram,  } from "lucide-react"
+import { Phone, Mail, Facebook, Instagram, Users  } from "lucide-react"
 
 const Header = ()=>{
     return (
@@ -19,7 +19,7 @@ const Header = ()=>{
     <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end text-gray-700 gap-4 text-sm font-medium">
 
       {/* Phone */}
-      <a href="tel:+919555699988" className="flex items-center hover:text-orange-800">
+      <a href="tel:+919555699988" className="flex items-center hover:text-orange-500">
         <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2">
           <Phone className="w-4 h-4 text-orange-600" />
         </div>
@@ -27,7 +27,7 @@ const Header = ()=>{
       </a>
 
       {/* Email */}
-      <a href="mailto:admission.cell@seglko.org" className="flex items-center hover:text-orange-800">
+      <a href="mailto:admission.cell@seglko.org" className="flex items-center hover:text-orange-500">
         <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-2">
           <Mail className="w-4 h-4 text-orange-600" />
         </div>
@@ -40,7 +40,7 @@ const Header = ()=>{
           href="https://www.facebook.com/ssitmalg"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-orange-800"
+          className="hover:text-orange-500"
         >
           <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
             <Facebook className="w-4 h-4 text-orange-600" />
@@ -50,7 +50,7 @@ const Header = ()=>{
           href="https://www.instagram.com/ssitmalg"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-orange-800"
+          className="hover:text-orange-500"
         >
           <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
             <Instagram className="w-4 h-4 text-orange-600" />
@@ -61,7 +61,20 @@ const Header = ()=>{
       </div>
 
       {/* AKTU Code (only on md and up) */}
-      <span className="hidden md:inline whitespace-nowrap">AKTU Code: 007</span>
+      <span className="hidden md:inline whitespace-nowrap hover:text-orange-500">AKTU Code: 007</span> 
+
+      {/* alumni connect  */}
+      <a 
+        href="https://alumni.seglko.org"
+        className="flex items-center text-black hover:text-orange-500 transition-colors" target= "_blank"
+      >
+        <Users className="w-4 h-4 mr-2" /> 
+        <span>Alumni</span>
+      </a>
+
+      {/*  Apply now button  */}
+      <a href="https://seglko.in8.nopaperforms.com/" target="_blank" className="hidden md:block px-13 p-2 text-sm rounded-lg border-2 border-orange-500 m-3 bg-gradient-to-r from-orange-500 to-red-400 text-white">Apply Now</a>
+
     </div>
   </div>
 </header>

@@ -8,7 +8,7 @@ function Research(){
     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')]"></div>
   </div>
 
-  <div className="container mx-auto max-w-6xl relative z-10 text-center">
+  <div className="container mx-auto max-w-8xl relative z-10 text-center">
     <div className="flex items-center justify-center flex-wrap gap-3 mb-4">
       <GraduationCap className="w-10 h-10 md:w-14 md:h-14 text-black-800" />
       <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
@@ -26,17 +26,17 @@ function Research(){
         viewport={{ once: true }}
         className="space-y-6 text-left"
       >
-        <h3 className="text-xl md:text-4xl max-w-3xl">
-          Join Our Pioneering Research Community
-        </h3>
+        <h3 className="text-xl text-center md:text-2xl max-w-4xl">
+          Join Our Research Community </h3>
         <img
           src="https://cdn.pixabay.com/photo/2023/10/27/06/02/clinical-trial-consulting-8344100_1280.jpg"
           alt="Research Lab"
           className="h-80 w-full object-cover rounded-lg border-1 border-white shadow-2xl"
         />
-        <p className="text-lg text-orange-100 max-w-lg">
-          At Shivdan Singh Institute of Technology & Management, we're shaping the future through groundbreaking discoveries.
-        </p>
+        <p className="text-lg text-orange-100">
+        At Shivdan Singh Institute of Technology & Management, we're shaping the future through groundbreaking discoveries. 
+        We empower students with industry-driven skills and a mindset for innovation. Our commitment to excellence fuels
+        a generation of thinkers, creators, and leaders.        </p>
       </motion.div>
 
       {/* Right content */}
